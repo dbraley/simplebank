@@ -7,7 +7,7 @@ Based entirely on the lecture:
 
 The site dbdiagram.io is certainly interesting. Not sure I agree that creating the database here is more intuitive than raw sql, but the diagram is nice enough I suppose.  
 
-$ database init
+# database init
 Pretty standard docker run of postgres. Documentingh for the giggles. For what it's worth.
 
 ```
@@ -39,3 +39,7 @@ root=# exit
 ```
 
 IntelliJ's (GoLand's) database ui doesn't seem to like using the `root` user, complains about not having a `root` role. Using user=postgres actually works though. I guess postgres sets up a postgres user no matter what? May look into that more later. Moving on for now.
+
+# Using migrate & make to init and teardown db
+
+Pretty strait forward. This is a fairly rudimentary Makefile, and could really use some improving, but whateves, it's fine for now. 
