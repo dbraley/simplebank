@@ -1,4 +1,4 @@
-reated by https://www.toptal.com/developers/gitignore/api/go,intellij
+Created by https://www.toptal.com/developers/gitignore/api/go,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=go,intellij
 
 ### Go ###
@@ -25,6 +25,9 @@ reated by https://www.toptal.com/developers/gitignore/api/go,intellij
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# Honestly, I don't think there's ever anything in .idea I really want to commit
+.idea
 
 # User-specific stuff
 .idea/**/workspace.xml
