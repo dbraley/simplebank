@@ -49,3 +49,9 @@ I do feel like migrate is probably underutilizied here. Should probably look int
 Good to know how to use the generator. Didn't make Update or Delete for entry and transaction, as it's not clear how we're protecting this data. Presumably some sort of deletion, or preferably pii fuzzing, should happen when an account gets deleted, but that's a whole can of worms I suspect we're not dealing with here.
 Checked authors code, and they are indeed not dealing with it. Interestingly, their transaction listing matches on both the `from_account` and the `to_account`, but with an OR, which seems... peculiar. I have a hard time imagining a use case where that's actually what you want. Leaving mine without filtering for now, may adjust when I better understand the authors hypothetical business domain.
 Definitely appreciate the pagination example, that was not SUPER obvious and is a necessity.
+
+# Unit testing
+I noticed I didn't add `NOT NULL` to the created_at definitions, which resulted in the go type being `sql.NullTime` rather than `time.Time`. Easy enough to fix with `make table_down`, `make table_up` and `make sqlc` though!
+Actually, I had a few errors in my sql that resulted in problems.
+I'm not entirely sure how the presenter managed to get 100% coverage, considering there appear to be plenty of uncovered `if err == nil` statements. I added some coverage for the common case of FK violations, though those are actually handled by lower level go files, so didn't actually improve my coverage.
+Still going to hold off on created a ListTransactions type method that takes two account ids until I understand how it's to be used, as I'm still pretty sure the `OR` style is wrong.
